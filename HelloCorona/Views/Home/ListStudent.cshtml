@@ -1,0 +1,14 @@
+﻿@model List<HelloCorona.Models.Student>
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>List Student</h2>
+<ul>
+    @foreach(var s in Model)
+    {
+        <li>@s.RollNumber</li>
+    }
+</ul>
+
+

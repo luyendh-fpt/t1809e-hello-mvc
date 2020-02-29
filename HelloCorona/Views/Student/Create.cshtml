@@ -1,0 +1,60 @@
+﻿@model HelloCorona.Models.Student
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Student</h2>
+
+@using (Html.BeginForm("Store", "Student"))
+{
+    @Html.ValidationSummary(true)
+    <div>
+        @Html.LabelFor(m => m.RollNumber)
+        @Html.TextBoxFor(m => m.RollNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.RollNumber)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.FullName)
+        @Html.TextBoxFor(m => m.FullName)
+        <span class="text-danger">@Html.ValidationMessageFor(m => m.FullName)</span>
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Birthday)
+        @Html.TextBoxFor(m => m.Birthday, new { @type = "date", @Value = Model.Birthday.ToString("yyyy-MM-dd") })
+        @Html.ValidationMessageFor(m => m.Birthday)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email)
+        @Html.ValidationMessageFor(m => m.Email)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Phone)
+        @Html.TextBoxFor(m => m.Phone)
+        @Html.ValidationMessageFor(m => m.Phone)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Password)
+        @Html.TextBoxFor(m => m.Password)
+        @Html.ValidationMessageFor(m => m.Password)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.ConfirmPassword)
+        @Html.TextBoxFor(m => m.ConfirmPassword)
+        @Html.ValidationMessageFor(m => m.ConfirmPassword)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Birthday)
+        @Html.EnumDropDownListFor(
+            m => m.Gender,
+            "Select Gender",
+            new { @class = "form-control" })
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Age) @Html.TextBoxFor(m => m.Age)
+    </div>
+    <div>
+        <input type="submit" value="Submit" />
+        <input type="reset" value="Reset" />
+    </div>
+}
