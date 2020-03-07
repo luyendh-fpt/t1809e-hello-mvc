@@ -1,12 +1,21 @@
 ﻿@model HelloCorona.Models.CombineData
 @{
     ViewBag.Title = "About";
-    var student = ViewBag.HelloStudent as HelloCorona.Models.Student;
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
-<strong>@ViewBag.HelloStudent.RollNumber</strong>
-<strong>@Model.MyProject.Name</strong>
-<strong>@Model.MyStudent.RollNumber</strong>
+<h1>Demo AJAX Helper</h1>
+<div id="attachmentImage">
+    Table of content
+</div>
 
-<p>Use this area to provide additional information.</p>
+@Ajax.ActionLink("View more", "AjaxIndex","Products",
+    new AjaxOptions
+    {
+        HttpMethod = "GET",
+        InsertionMode = InsertionMode.Replace,
+        LoadingElementId = "loadingImage",
+        UpdateTargetId = "attachmentImage"
+    })
+
+<div id="loadingImage" style="display:none">
+    Loading attachment...
+</div>

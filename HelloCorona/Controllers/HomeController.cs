@@ -17,22 +17,7 @@ namespace HelloCorona.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-            var student = new Student()
-            {
-                Age = 20,
-                RollNumber = "A001"
-            };
-            var project = new Project()
-            {
-                Id = "Pr01",
-                Name = ".Net MVC Project"
-            };
-            var combineData = new CombineData()
-            {
-                  MyProject = project,
-                  MyStudent = student
-            };            
-            return View("~/Views/Home/About.cshtml", combineData);
+            return View("~/Views/Home/About.cshtml");
         }
 
         public ActionResult HelloList()

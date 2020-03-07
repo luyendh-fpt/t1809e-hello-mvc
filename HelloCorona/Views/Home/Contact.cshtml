@@ -2,16 +2,23 @@
     ViewBag.Title = "Contact";
 }
 <h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+@using (Ajax.BeginForm("Search", "Products",
+    new AjaxOptions
+    {
+        InsertionMode = InsertionMode.Replace,
+        HttpMethod = "GET",
+        OnFailure = "searchFailed",
+        LoadingElementId = "ajax-loader",
+        UpdateTargetId = "searchresults",
+    }))
+{
+    <input type="text" name="keyword" />
+    <input type="Submit" value="search" />
+    <div id="searchresults" style="margin: 10px">
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+    </div>
+    <img id="ajax-loader"
+         src="https://flevix.com/wp-content/uploads/2019/07/Ring-Loading.gif"
+         style="display: none; width: 100px;" />
+}

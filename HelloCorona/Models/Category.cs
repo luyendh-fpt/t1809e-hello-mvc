@@ -9,5 +9,6 @@ namespace HelloCorona.Models
     {
         public string CategoryId { get; set; }
         public string Name { get; set; }
+        public List<Product> Products { get; set; }
     }
 }
